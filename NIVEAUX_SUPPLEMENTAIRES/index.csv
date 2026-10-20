@@ -1,62 +1,62 @@
-niveau;table;miams;distance_sortie_depuis_depart;impasses;validation
-existant;TABLE.LAB;64;;;1000 cases
-existant;TABLE1.LAB;50;;;1000 cases
-existant;TABLE10.LAB;121;;;1000 cases
-existant;TABLE2.LAB;29;;;1000 cases
-existant;TABLE3.LAB;11;;;1000 cases
-existant;TABLE4.LAB;43;;;1000 cases
-existant;TABLE5.LAB;78;;;1000 cases
-existant;TABLE6.LAB;0;;;1000 cases
-existant;TABLE7.LAB;58;;;1000 cases
-existant;TABLE8.LAB;113;;;1000 cases
-existant;TABLE9.LAB;69;;;1000 cases
-11;TABLE11.LAB;5;78;0;tous les Miam et la sortie accessibles
-12;TABLE12.LAB;5;84;0;tous les Miam et la sortie accessibles
-13;TABLE13.LAB;5;88;0;tous les Miam et la sortie accessibles
-14;TABLE14.LAB;6;92;0;tous les Miam et la sortie accessibles
-15;TABLE15.LAB;6;96;0;tous les Miam et la sortie accessibles
-16;TABLE16.LAB;6;100;0;tous les Miam et la sortie accessibles
-17;TABLE17.LAB;7;102;0;tous les Miam et la sortie accessibles
-18;TABLE18.LAB;7;104;0;tous les Miam et la sortie accessibles
-19;TABLE19.LAB;7;106;0;tous les Miam et la sortie accessibles
-20;TABLE20.LAB;8;108;0;tous les Miam et la sortie accessibles
-21;TABLE21.LAB;8;110;0;tous les Miam et la sortie accessibles
-22;TABLE22.LAB;8;112;0;tous les Miam et la sortie accessibles
-23;TABLE23.LAB;9;114;0;tous les Miam et la sortie accessibles
-24;TABLE24.LAB;9;116;0;tous les Miam et la sortie accessibles
-25;TABLE25.LAB;9;116;0;tous les Miam et la sortie accessibles
-26;TABLE26.LAB;10;118;0;tous les Miam et la sortie accessibles
-27;TABLE27.LAB;10;120;0;tous les Miam et la sortie accessibles
-28;TABLE28.LAB;10;122;0;tous les Miam et la sortie accessibles
-29;TABLE29.LAB;11;124;0;tous les Miam et la sortie accessibles
-30;TABLE30.LAB;11;126;0;tous les Miam et la sortie accessibles
-31;TABLE31.LAB;11;128;0;tous les Miam et la sortie accessibles
-32;TABLE32.LAB;12;128;0;tous les Miam et la sortie accessibles
-33;TABLE33.LAB;12;130;0;tous les Miam et la sortie accessibles
-34;TABLE34.LAB;12;132;0;tous les Miam et la sortie accessibles
-35;TABLE35.LAB;13;134;0;tous les Miam et la sortie accessibles
-36;TABLE36.LAB;13;134;0;tous les Miam et la sortie accessibles
-37;TABLE37.LAB;13;136;0;tous les Miam et la sortie accessibles
-38;TABLE38.LAB;14;138;0;tous les Miam et la sortie accessibles
-39;TABLE39.LAB;14;140;0;tous les Miam et la sortie accessibles
-40;TABLE40.LAB;14;142;0;tous les Miam et la sortie accessibles
-41;TABLE41.LAB;15;144;0;tous les Miam et la sortie accessibles
-42;TABLE42.LAB;15;146;0;tous les Miam et la sortie accessibles
-43;TABLE43.LAB;15;148;0;tous les Miam et la sortie accessibles
-44;TABLE44.LAB;16;150;0;tous les Miam et la sortie accessibles
-45;TABLE45.LAB;16;152;0;tous les Miam et la sortie accessibles
-46;TABLE46.LAB;16;154;0;tous les Miam et la sortie accessibles
-47;TABLE47.LAB;17;158;0;tous les Miam et la sortie accessibles
-48;TABLE48.LAB;17;160;0;tous les Miam et la sortie accessibles
-49;TABLE49.LAB;17;164;0;tous les Miam et la sortie accessibles
-50;TABLE50.LAB;18;168;0;tous les Miam et la sortie accessibles
-51;TABLE51.LAB;18;174;0;tous les Miam et la sortie accessibles
-52;TABLE52.LAB;18;180;0;tous les Miam et la sortie accessibles
-53;TABLE53.LAB;19;186;0;tous les Miam et la sortie accessibles
-54;TABLE54.LAB;19;196;0;tous les Miam et la sortie accessibles
-55;TABLE55.LAB;19;208;0;tous les Miam et la sortie accessibles
-56;TABLE56.LAB;20;222;0;tous les Miam et la sortie accessibles
-57;TABLE57.LAB;20;234;0;tous les Miam et la sortie accessibles
-58;TABLE58.LAB;20;248;0;tous les Miam et la sortie accessibles
-59;TABLE59.LAB;21;262;0;tous les Miam et la sortie accessibles
-60;TABLE60.LAB;21;280;0;tous les Miam et la sortie accessibles
+niveau;table;motif_mural;miams;distance_sortie_depuis_depart;impasses;validation
+existant;TABLE.LAB;;64;;;1000 cases
+existant;TABLE1.LAB;;50;;;1000 cases
+existant;TABLE10.LAB;;121;;;1000 cases
+existant;TABLE2.LAB;;29;;;1000 cases
+existant;TABLE3.LAB;;11;;;1000 cases
+existant;TABLE4.LAB;;43;;;1000 cases
+existant;TABLE5.LAB;;78;;;1000 cases
+existant;TABLE6.LAB;;0;;;1000 cases
+existant;TABLE7.LAB;;58;;;1000 cases
+existant;TABLE8.LAB;;113;;;1000 cases
+existant;TABLE9.LAB;;69;;;1000 cases
+11;TABLE11.LAB;cœur;5;73;0;tous les Miam et la sortie accessibles
+12;TABLE12.LAB;étoile;5;84;0;tous les Miam et la sortie accessibles
+13;TABLE13.LAB;maison;5;78;0;tous les Miam et la sortie accessibles
+14;TABLE14.LAB;clé;6;92;0;tous les Miam et la sortie accessibles
+15;TABLE15.LAB;fusée;6;96;0;tous les Miam et la sortie accessibles
+16;TABLE16.LAB;arbre;6;84;0;tous les Miam et la sortie accessibles
+17;TABLE17.LAB;fantôme;7;102;0;tous les Miam et la sortie accessibles
+18;TABLE18.LAB;poisson;7;88;0;tous les Miam et la sortie accessibles
+19;TABLE19.LAB;couronne;7;76;0;tous les Miam et la sortie accessibles
+20;TABLE20.LAB;ancre;8;86;0;tous les Miam et la sortie accessibles
+21;TABLE21.LAB;fleur;8;79;0;tous les Miam et la sortie accessibles
+22;TABLE22.LAB;épée;8;112;0;tous les Miam et la sortie accessibles
+23;TABLE23.LAB;lune;9;114;0;tous les Miam et la sortie accessibles
+24;TABLE24.LAB;soleil;9;116;0;tous les Miam et la sortie accessibles
+25;TABLE25.LAB;champignon;9;71;0;tous les Miam et la sortie accessibles
+26;TABLE26.LAB;oiseau;10;72;0;tous les Miam et la sortie accessibles
+27;TABLE27.LAB;éclair;10;80;0;tous les Miam et la sortie accessibles
+28;TABLE28.LAB;trophée;10;122;0;tous les Miam et la sortie accessibles
+29;TABLE29.LAB;bateau;11;124;0;tous les Miam et la sortie accessibles
+30;TABLE30.LAB;drapeau;11;64;0;tous les Miam et la sortie accessibles
+31;TABLE31.LAB;papillon;11;74;0;tous les Miam et la sortie accessibles
+32;TABLE32.LAB;chat;12;84;0;tous les Miam et la sortie accessibles
+33;TABLE33.LAB;crabe;12;116;0;tous les Miam et la sortie accessibles
+34;TABLE34.LAB;cactus;12;132;0;tous les Miam et la sortie accessibles
+35;TABLE35.LAB;ballon;13;134;0;tous les Miam et la sortie accessibles
+36;TABLE36.LAB;cœur miroir;13;79;0;tous les Miam et la sortie accessibles
+37;TABLE37.LAB;étoile miroir;13;71;0;tous les Miam et la sortie accessibles
+38;TABLE38.LAB;maison miroir;14;138;0;tous les Miam et la sortie accessibles
+39;TABLE39.LAB;clé miroir;14;68;0;tous les Miam et la sortie accessibles
+40;TABLE40.LAB;fusée miroir;14;85;0;tous les Miam et la sortie accessibles
+41;TABLE41.LAB;arbre miroir;15;124;0;tous les Miam et la sortie accessibles
+42;TABLE42.LAB;fantôme miroir;15;114;0;tous les Miam et la sortie accessibles
+43;TABLE43.LAB;poisson miroir;15;144;0;tous les Miam et la sortie accessibles
+44;TABLE44.LAB;couronne miroir;16;96;0;tous les Miam et la sortie accessibles
+45;TABLE45.LAB;ancre miroir;16;66;0;tous les Miam et la sortie accessibles
+46;TABLE46.LAB;fleur miroir;16;92;0;tous les Miam et la sortie accessibles
+47;TABLE47.LAB;épée miroir;17;158;0;tous les Miam et la sortie accessibles
+48;TABLE48.LAB;lune miroir;17;112;0;tous les Miam et la sortie accessibles
+49;TABLE49.LAB;soleil miroir;17;88;0;tous les Miam et la sortie accessibles
+50;TABLE50.LAB;champignon miroir;18;100;0;tous les Miam et la sortie accessibles
+51;TABLE51.LAB;oiseau miroir;18;62;0;tous les Miam et la sortie accessibles
+52;TABLE52.LAB;éclair miroir;18;85;0;tous les Miam et la sortie accessibles
+53;TABLE53.LAB;trophée miroir;19;90;0;tous les Miam et la sortie accessibles
+54;TABLE54.LAB;bateau miroir;19;120;0;tous les Miam et la sortie accessibles
+55;TABLE55.LAB;drapeau miroir;19;122;0;tous les Miam et la sortie accessibles
+56;TABLE56.LAB;papillon miroir;20;82;0;tous les Miam et la sortie accessibles
+57;TABLE57.LAB;chat miroir;20;206;0;tous les Miam et la sortie accessibles
+58;TABLE58.LAB;crabe miroir;20;100;0;tous les Miam et la sortie accessibles
+59;TABLE59.LAB;cactus miroir;21;108;0;tous les Miam et la sortie accessibles
+60;TABLE60.LAB;ballon miroir;21;112;0;tous les Miam et la sortie accessibles

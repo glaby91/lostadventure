@@ -53,6 +53,36 @@ CELL_TO_GLYPH = {
     8: (228, "heart"),
 }
 
+# Compact wall-art icons.  The second half of the levels mirrors these shapes,
+# while the underlying maze and the icon's position also change.
+MOTIFS = [
+    ("cœur", ["..##..##..", ".##.##.##.", "##......##", "##......##", ".##....##.", "..##..##..", "...####...", "....##...."]),
+    ("étoile", ["......#......", "......#......", ".....###.....", "#############", ".###########.", "...#######...", "....#####....", "...##...##...", "..##.....##.."]),
+    ("maison", [".....#.....", "....###....", "...#####...", "..#######..", ".#########.", "###########", "##...#...##", "##...#...##", "###########"]),
+    ("clé", ["..#####....", ".#######...", "#########..", ".#######...", "..#####....", "....##.....", "....##.###.", "....##.###."]),
+    ("fusée", [".....#.....", "....###....", "...#####...", "...#####...", "..#######..", "..#######..", ".#########.", "...##.##....", "...##.##...."]),
+    ("arbre", [".....#.....", "....###....", "...#####...", "..#######..", ".#########.", "...#####...", "..#######..", "....###....", "....###...."]),
+    ("fantôme", ["...#######...", "..#########..", ".###########.", "#############", "##..#####..##", "##..#####..##", "#############", "##...###...##", "#..#.....#..#"]),
+    ("poisson", ["....###......", "..#######....", ".#########...", "#############", ".#########...", "..#######....", "....###......", "...#...#......"]),
+    ("couronne", ["#...#...#...#", "##..##..##..##", "#############", "#############", ".###########.", "..#########..", "...#######..."]),
+    ("ancre", [".....#.....", "....###....", ".....#.....", ".....#.....", "..#######..", ".....#.....", "...##.##...", "..##...##..", ".##.....##."]),
+    ("fleur", ["....###....", "...#####...", "..#######..", "...#####...", "....###....", "###..#..###", "....###....", "....###....", "...#####..."]),
+    ("épée", [".....#.....", ".....#.....", ".....#.....", ".....#.....", ".....#.....", ".....#.....", "..#######..", "....###....", "....###...."]),
+    ("lune", ["....#####....", "..########...", ".#########....", "############..", "############..", ".#########....", "..########...", "....#####...."]),
+    ("soleil", ["....#...#....", ".....#.#......", "..#########...", ".###########..", "#############.", ".###########..", "..#########...", ".....#.#......", "....#...#...."]),
+    ("champignon", ["....#####....", "..#########..", ".###########.", "#############", "....###......", "....###......", "..#######....", "..#######...."]),
+    ("oiseau", ["#...........#", "##.........##", ".##.......##.", "..#########..", "...#######...", "....#####....", ".....###.....", "....##.##...."]),
+    ("éclair", [".......####..", "......####...", ".....####....", "...##########", "..##########.", "........##...", ".......##....", "......##....."]),
+    ("trophée", [".###########.", "#############", "#############", "..#########..", "...#######...", ".....###.....", "..#########..", "..#########.."]),
+    ("bateau", ["......#......", "......#......", "......#......", ".....##......", "...#####.....", ".###########.", "#############", "..#########.."]),
+    ("drapeau", ["..#########..", "..#########..", "..#########..", "..##.........", "..##.........", "..##.........", "..##.........", "..########...", "..########..."]),
+    ("papillon", ["##...###...##", "###..###..###", ".###########.", "..#########..", "...#######...", "....#####....", "...##...##...", "..##.....##.."]),
+    ("chat", ["#...#.....#...#", "##..##...##..##", "#############", "##..#######..##", "##..#######..##", "#############", "...##.....##...", "..##.......##.."]),
+    ("crabe", ["#...#.....#...#", "##..##...##..##", ".#############.", "################", "##..#######..##", "...#########...", "..##.......##.."]),
+    ("cactus", ["....###....", "....###....", "..#####....", "..#####....", "....#######", "....#######", "....###....", "....###....", "..#######.."]),
+    ("ballon", ["....#####....", "..#########..", ".###########.", "#############", "#############", ".###########.", "..#########..", "....#####....", "......#......"]),
+]
+
 
 def load_lab(path: Path) -> list[int]:
     values: list[int] = []
@@ -173,6 +203,76 @@ def make_maze(seed: int) -> tuple[list[int], int, int]:
     return values, exit_distance, dead_ends
 
 
+def add_wall_art(values: list[int], level: int) -> str:
+    """Carve a small connected gallery and draw one recognizable wall icon."""
+    motif_index = (level - 11) % len(MOTIFS)
+    name, original = MOTIFS[motif_index]
+    rows = list(original)
+    if level - 11 >= len(MOTIFS):
+        rows = [row[::-1] for row in rows]
+        name += " miroir"
+
+    # Keep the drawing compact so most of the screen remains a maze.
+    room_w, room_h = 15, 11
+    x0 = 2 if (level // 2) % 2 == 0 else WIDTH - 2 - room_w
+    y0 = 2 if (level // 4) % 2 == 0 else HEIGHT - 2 - room_h
+
+    # Find the nearest existing corridor beside the room and open one entrance.
+    distances = bfs(values, (19, 11))
+    candidates = []
+    for x in range(x0 + 1, x0 + room_w - 1):
+        for entrance_y, outside_y in ((y0, y0 - 1), (y0 + room_h - 1, y0 + room_h)):
+            p = (x, outside_y)
+            if p in distances:
+                candidates.append((distances[p], (x, entrance_y), p))
+    for y in range(y0 + 1, y0 + room_h - 1):
+        for entrance_x, outside_x in ((x0, x0 - 1), (x0 + room_w - 1, x0 + room_w)):
+            p = (outside_x, y)
+            if p in distances:
+                candidates.append((distances[p], (entrance_x, y), p))
+
+    if not candidates:
+        # A nearby corridor is always found on these densely connected maps;
+        # fail loudly if a future map generator changes that assumption.
+        raise AssertionError(f"TABLE{level}: no corridor beside wall-art room")
+    _, entrance, outside = min(candidates, key=lambda item: item[0])
+
+    # Open the gallery and the single adjoining entrance; this can only add
+    # routes.  The icon stays at least one tile from every room edge.
+    for y in range(y0, y0 + room_h):
+        for x in range(x0, x0 + room_w):
+            values[y * WIDTH + x] = 0
+    ex, ey = entrance
+    ox, oy = outside
+    values[ey * WIDTH + ex] = 0
+    values[oy * WIDTH + ox] = 0
+
+    art_x = x0 + (room_w - max(map(len, rows))) // 2
+    art_y = y0 + (room_h - len(rows)) // 2
+    for dy, row in enumerate(rows):
+        row_x = x0 + (room_w - len(row)) // 2
+        for dx, cell in enumerate(row):
+            if cell == "#":
+                x, y = row_x + dx, art_y + dy
+                values[y * WIDTH + x] = 1
+
+    return name
+
+
+def place_exit(values: list[int]) -> int:
+    """Put the exit at the farthest reachable open cell and return its distance."""
+    for i, value in enumerate(values):
+        if value == 3:
+            values[i] = 0
+    distances = bfs(values, (19, 11))
+    exit_xy = max(
+        (p for p in distances if p != (19, 11)),
+        key=lambda p: (distances[p], -(p[1] * WIDTH + p[0])),
+    )
+    values[exit_xy[1] * WIDTH + exit_xy[0]] = 3
+    return distances[exit_xy]
+
+
 def choose_mazes(count: int = 50) -> list[tuple[list[int], int, int]]:
     candidates = []
     seen = set()
@@ -241,13 +341,13 @@ def main() -> None:
     image_index: list[tuple[str, Path]] = []
     with (OUT / "index.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f, delimiter=";", lineterminator="\n")
-        writer.writerow(["niveau", "table", "miams", "distance_sortie_depuis_depart", "impasses", "validation"])
+        writer.writerow(["niveau", "table", "motif_mural", "miams", "distance_sortie_depuis_depart", "impasses", "validation"])
         for source in sorted(ROOT.glob("TABLE*.LAB"), key=lambda p: (p.stem != "TABLE", p.stem)):
             values = load_lab(source)
             target = EXISTING_IMAGES / f"{source.stem}.png"
             render(values, target)
             image_index.append((source.stem, target))
-            writer.writerow(["existant", source.name, values.count(2), "", "", "1000 cases"])
+            writer.writerow(["existant", source.name, "", values.count(2), "", "", "1000 cases"])
 
         binary = (ROOT / "TABLE.BIN").read_bytes()
         if binary[:1] == b"\x00" and len(binary) >= 1128:
@@ -260,12 +360,16 @@ def main() -> None:
         candidates = choose_mazes()
         for i, (values, distance, dead_ends) in enumerate(candidates, start=11):
             rng = random.Random(900000 + i)
+            motif = add_wall_art(values, i)
+            distance = place_exit(values)
             miams = add_food(values, i, rng)
             table = TABLES / f"TABLE{i}.LAB"
             image = NEW_IMAGES / f"TABLE{i}.png"
             save_lab(table, values)
             render(values, image)
             reachable = bfs(values, (19, 11))
+            if len(values) != WIDTH * HEIGHT or values.count(3) != 1:
+                raise AssertionError(f"TABLE{i}: invalid size or exit count")
             food_positions = [
                 (idx % WIDTH, idx // WIDTH) for idx, value in enumerate(values) if value == 2
             ]
@@ -273,7 +377,7 @@ def main() -> None:
                 raise AssertionError(f"TABLE{i}: unreachable Miam")
             if (next((idx % WIDTH, idx // WIDTH) for idx, value in enumerate(values) if value == 3)) not in reachable:
                 raise AssertionError(f"TABLE{i}: unreachable exit")
-            writer.writerow([i, table.name, miams, distance, dead_ends, "tous les Miam et la sortie accessibles"])
+            writer.writerow([i, table.name, motif, miams, distance, dead_ends, "tous les Miam et la sortie accessibles"])
             image_index.append((f"Niveau {i}", image))
 
     make_contact_sheet(image_index[:len(list(ROOT.glob("TABLE*.LAB"))) + 1],
