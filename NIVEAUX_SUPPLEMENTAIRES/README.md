@@ -1,7 +1,7 @@
 # Niveaux LostAdventure
 
-Ce dossier rassemble les aperçus de toutes les tables déjà présentes dans le
-dépôt et 50 nouveaux labyrinthes, numérotés de 11 à 60.
+Ce dossier rassemble les aperçus des tables déjà présentes dans le dépôt,
+50 nouveaux labyrinthes numérotés de 11 à 60, ainsi qu’une maquette de niveau 61.
 
 ## Contenu
 
@@ -16,6 +16,8 @@ dépôt et 50 nouveaux labyrinthes, numérotés de 11 à 60.
 - `index.csv` : motif mural, nombre de Miam, distance de sortie et contrôle
   d’accessibilité.
 - `generate_levels.py` : générateur et outil de rendu reproductible.
+- `propositions/TABLE61.LAB` et `images/propositions/TABLE61.png` : maquette
+  CPC composée le 28 octobre 2026, avec deux cœurs et des portes.
 
 ## Règles des nouvelles grilles
 
@@ -45,6 +47,16 @@ La bordure est ajoutée par la routine ASM, comme dans le jeu. Les images sont
 des rendus statiques de la première phase des couleurs clignotantes. Le dessin
 des motifs emploie les murs existants (`1`) : aucune nouvelle tuile ni routine
 ASM n’est requise.
+
+## Maquette du niveau 61
+
+La table 61 est une proposition visuelle, non raccordée à la progression du
+BASIC. Elle contient le titre `LOST ADVENTURE`, deux cœurs (`8`) et trois
+portes (`3`). Le code du jeu traite une porte comme franchissable et déclenche
+le niveau suivant quand le compteur de Miam atteint zéro ; il faudra distinguer
+portes de passage et sortie si elles doivent garder des rôles différents.
+Cette table n’utilise que le mur standard `1` ; les variantes `4` à `7` restent
+prises en charge par le rendu et la simulation existants.
 
 ## Utilisation dans le jeu
 
