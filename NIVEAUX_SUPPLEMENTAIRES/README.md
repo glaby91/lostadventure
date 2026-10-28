@@ -20,6 +20,8 @@ Ce dossier rassemble les aperçus des tables déjà présentes dans le dépôt,
   CPC avec deux cœurs et des portes.
 - `propositions/TABLE62.LAB` et `images/propositions/TABLE62.png` : nouveau
   labyrinthe CPC avec 36 Miam, deux cœurs, des portes et des murs variants.
+- `propositions/TABLE63.LAB` et `images/propositions/TABLE63.png` : labyrinthe
+  sans boucle, 155 Miam dans les impasses et aucun cœur.
 
 ## Règles des nouvelles grilles
 
@@ -63,6 +65,21 @@ Le code du jeu traite une porte (`3`) comme franchissable et déclenche le nivea
 suivant quand le compteur de Miam atteint zéro ; les portes de passage auront
 donc aussi cet effet une fois tous les Miam ramassés. Les deux tables restent
 des maquettes tant que cette règle n’est pas adaptée.
+
+## Proposition TABLE63 — Le grand détour
+
+TABLE63 est une maquette 40 × 25 avec 551 cases accessibles reliées en arbre,
+155 Miam placés aux impasses, aucun cœur et une sortie adjacente au départ.
+Sans boucle ni raccourci, il faut explorer les branches puis revenir. La
+simulation « Miam accessible le plus proche » atteint la sortie en 1 129
+déplacements ; la borne minimale de parcours est de 1 099 déplacements.
+
+Le générateur a comparé 1 000 labyrinthes-arbres et retenu le plus grand réseau
+accessible trouvé. Ce résultat est le meilleur de cette recherche, pas une
+preuve du maximum mathématique. La carte reste une proposition indépendante,
+non raccordée à la progression BASIC. Le parcours et les résultats détaillés
+sont dans `propositions/TABLE63_parcours.csv` et
+`propositions/TABLE63_simulation.csv`.
 
 ## Utilisation dans le jeu
 
