@@ -1,4 +1,4 @@
-# TABLE63 — Le grand détour
+# TABLE63 — La carte de la mort
 
 Carte CPC 40 × 25 conçue pour obliger les retours en arrière. Les passages forment un arbre sans raccourci, la sortie est juste à côté du départ, et chaque impasse porte un Miam. Il y a 155 Miam et aucun cœur.
 

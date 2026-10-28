@@ -66,7 +66,7 @@ suivant quand le compteur de Miam atteint zéro ; les portes de passage auront
 donc aussi cet effet une fois tous les Miam ramassés. Les deux tables restent
 des maquettes tant que cette règle n’est pas adaptée.
 
-## Proposition TABLE63 — Le grand détour
+## Proposition TABLE63 — La carte de la mort
 
 TABLE63 est une maquette 40 × 25 avec 551 cases accessibles reliées en arbre,
 155 Miam placés aux impasses, aucun cœur et une sortie adjacente au départ.
