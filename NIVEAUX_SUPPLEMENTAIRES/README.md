@@ -1,7 +1,7 @@
 # Niveaux LostAdventure
 
 Ce dossier rassemble les aperçus des tables déjà présentes dans le dépôt,
-50 nouveaux labyrinthes numérotés de 11 à 60, ainsi qu’une maquette de niveau 61.
+50 nouveaux labyrinthes numérotés de 11 à 60, ainsi que les maquettes de niveaux 61 et 62.
 
 ## Contenu
 
@@ -17,7 +17,9 @@ Ce dossier rassemble les aperçus des tables déjà présentes dans le dépôt,
   d’accessibilité.
 - `generate_levels.py` : générateur et outil de rendu reproductible.
 - `propositions/TABLE61.LAB` et `images/propositions/TABLE61.png` : maquette
-  CPC composée le 28 octobre 2026, avec deux cœurs et des portes.
+  CPC avec deux cœurs et des portes.
+- `propositions/TABLE62.LAB` et `images/propositions/TABLE62.png` : nouveau
+  labyrinthe CPC avec 36 Miam, deux cœurs, des portes et des murs variants.
 
 ## Règles des nouvelles grilles
 
@@ -48,15 +50,19 @@ des rendus statiques de la première phase des couleurs clignotantes. Le dessin
 des motifs emploie les murs existants (`1`) : aucune nouvelle tuile ni routine
 ASM n’est requise.
 
-## Maquette du niveau 61
+## Maquettes des niveaux 61 et 62
 
-La table 61 est une proposition visuelle, non raccordée à la progression du
-BASIC. Elle contient le titre `LOST ADVENTURE`, deux cœurs (`8`) et trois
-portes (`3`). Le code du jeu traite une porte comme franchissable et déclenche
-le niveau suivant quand le compteur de Miam atteint zéro ; il faudra distinguer
-portes de passage et sortie si elles doivent garder des rôles différents.
-Cette table n’utilise que le mur standard `1` ; les variantes `4` à `7` restent
-prises en charge par le rendu et la simulation existants.
+Les deux tables sont des propositions visuelles, non raccordées à la progression
+du BASIC. TABLE61 reprend l’écran `LOST ADVENTURE` avec deux cœurs et des portes.
+TABLE62 propose un labyrinthe jouable avec 36 Miam, deux cœurs (`8`), une porte
+de sortie et des portes de passage (`3`). Les variantes de mur `4` à `7` sont
+également utilisées dans TABLE62 et sont reconnues par l’affichage et la
+simulation.
+
+Le code du jeu traite une porte (`3`) comme franchissable et déclenche le niveau
+suivant quand le compteur de Miam atteint zéro ; les portes de passage auront
+donc aussi cet effet une fois tous les Miam ramassés. Les deux tables restent
+des maquettes tant que cette règle n’est pas adaptée.
 
 ## Utilisation dans le jeu
 
